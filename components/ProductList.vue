@@ -79,14 +79,22 @@ export default Vue.extend({
     async fetch() {
         await this.loadProduct();
     },
+    computed: {
+        productSearch() {
+            return this.$store.state.search
+        }
+    },
     watch: {
         async productName(value: string) {
-            if(value.length >= 3) {
-                this.pageAble = await this.$axios.$post("search-products?name=" + value)
-                this.products = this.pageAble.data
-            } else if(value.length <= 0) {
-                await this.loadProduct();
-            }
+            await this.searchProductByName(value);
+        },
+        productSearch(value: string) {
+            this.productName = value
+        }
+    },
+    mounted() {
+        if(this.productSearch) {
+            this.productName = this.productSearch
         }
     },
     methods: {
@@ -96,6 +104,14 @@ export default Vue.extend({
 
             if(this.sortDirection !== SortDirection.DESC) {
                 this.sortDirection = SortDirection.DESC
+            }
+        },
+        async searchProductByName(value: string) {
+            if(value.length >= 3) {
+                this.pageAble = await this.$axios.$post("search-products?name=" + value)
+                this.products = this.pageAble.data
+            } else if(value.length <= 0) {
+                await this.loadProduct();
             }
         },
         async setPath(url: string) {
