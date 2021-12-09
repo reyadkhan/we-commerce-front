@@ -27,7 +27,7 @@
                             class='fas fa-user-plus fa-fw fa-inverse text-indigo-500'></i></div>
                     </div>
                     <div class='flex-1'>
-                        <h3 class='font-bold text-3xl'>{{ totalProduct }} <span class='text-yellow-600'><i
+                        <h3 class='font-bold text-3xl'>{{ newUser }} <span class='text-yellow-600'><i
                             class='fas fa-caret-up'></i></span></h3>
                         <h5 class='font-bold text-gray-500'>Today's New User(s)</h5>
                     </div>
@@ -44,7 +44,7 @@
                             class='fas fa-store fa-fw fa-inverse text-indigo-500'></i></div>
                     </div>
                     <div class='flex-1'>
-                        <h3 class='font-bold text-3xl'>{{ newUser }} <span class='text-green-300'><i
+                        <h3 class='font-bold text-3xl'>{{ totalProduct }} <span class='text-green-300'><i
                             class='fas fa-caret-down'></i></span></h3>
                         <h5 class='font-bold text-gray-500'>Total product(s)</h5>
                     </div>
