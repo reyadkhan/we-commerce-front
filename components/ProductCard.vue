@@ -28,7 +28,7 @@ export default Vue.extend({
     methods: {
         addCart() {
             this.$store.dispatch('addCart', this.product);
-            this.$notifier.show("Product successfully added to cart.");
+            this.$notifier.show("Product successfully added to cart.", "Succes !", 'indigo');
         }
     }
 })
