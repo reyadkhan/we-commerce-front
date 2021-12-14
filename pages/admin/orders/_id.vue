@@ -1,11 +1,13 @@
 <template>
-    <Cart />
+    <OrderDetails />
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
 
 export default Vue.extend({
-    auth: false
+    layout: 'admin',
+    auth: false,
+    middleware: ['authAdmin', 'authGuard']
 })
 </script>
