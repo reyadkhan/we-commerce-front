@@ -28,7 +28,10 @@
             </div>
 
             <div id="nav-content" class="order-2 md:order-3 flex items-center">
-                <NuxtLink v-if='$auth.loggedIn && $auth.user.isAdmin' to='/admin/products' class='border-b rounded bg-green-400 text-indigo-100 hover:text-white px-4 py-1 cursor-pointer font-bold mr-2'>Admin</NuxtLink>
+                <template v-if='$auth.loggedIn'>
+                    <NuxtLink v-if='$auth.user.isAdmin' to='/admin/products' class='border-b rounded bg-green-400 text-indigo-100 hover:text-white px-4 py-1 cursor-pointer font-bold mr-2'>Admin</NuxtLink>
+                    <NuxtLink v-else to='/orders' class='border-b rounded bg-green-400 text-indigo-100 hover:text-white px-4 py-1 cursor-pointer font-bold mr-2'>Orders</NuxtLink>
+                </template>
 
                 <NuxtLink v-if=' ! $auth.loggedIn' to='login' class="inline-block no-underline hover:text-black">
                     <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

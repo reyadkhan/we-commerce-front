@@ -16,8 +16,9 @@ export default Vue.extend({
         }
     },
     methods: {
-        async logout() {
-            await this.$auth.logout()
+        logout() {
+            this.$auth.logout()
+                .then(() => this.$router.push('/login'))
         }
     }
 })

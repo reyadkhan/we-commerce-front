@@ -1,11 +1,12 @@
 <template>
-    <Cart />
+    <Cart/>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue'
 
 export default Vue.extend({
-    auth: false
+    auth: false,
+    middleware: 'authGuard'
 })
 </script>

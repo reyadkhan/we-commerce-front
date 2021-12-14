@@ -61,13 +61,17 @@ export default Vue.extend({
                 }
             }).then(() => {
                 const user = this.$auth.user;
+                const intendedUrl = this.$route.query.redirect as (string | null);
+                let redirectUrl;
+
                 if(user.isAdmin) {
-                    this.$router.replace('/admin/products')
+                    redirectUrl = intendedUrl || '/admin/products';
                 } else {
-                    this.$router.replace('/')
+                    redirectUrl = intendedUrl || '/';
                 }
+                this.$router.push({ path: redirectUrl })
             }).catch(() => {
-                this.error = "Authentication failed."
+                this.error = "Wrong credential"
             })
         }
     }

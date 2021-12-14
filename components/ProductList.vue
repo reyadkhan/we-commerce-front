@@ -1,6 +1,6 @@
 <template>
     <div>
-        <FetchState v-if='$fetchState.pending || $fetchState.error' :fetch-state='$fetchState' />
+        <FetchState v-if='$fetchState.pending || $fetchState.error' :fetch-state='$fetchState' class='mt-5' />
         <div v-else>
             <div v-if=' ! tableView'>
                 <div class='flex items-center flex-wrap pt-4 pb-12'>
